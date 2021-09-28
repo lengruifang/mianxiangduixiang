@@ -11,9 +11,9 @@ public class Klass {
     }
     public String getDisplayName(){ return "Class "+Number; }
     protected Object assignLeader(Student Student) {
-            if (this.Student!=null)return Leader = Student;
+        try{if (this.Student!=null)return Leader = Student;}
+        catch(IllegalArgumentException){System.out.print("1");}
     }
-    try{assignLeader(this.Student);}catch(IllegalArgumentException){System.out.print("1");}
     public Object appendMember(Student Student){
         this.Student=Student;
         return this.Student;
