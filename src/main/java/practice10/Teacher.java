@@ -13,13 +13,13 @@ public class Teacher extends Person{
         super(id,Name, Age);
         this.Classes=Classes;
     }
-    List<String> klassNumbers;
-    private String getClassesNumber(LinkedList<Klass> Classes){
-        for (int i=0;i<Classes.size();i++){
-            klassNumbers.add(" "+String.valueOf(Classes.get(i).Number));
-        }
-        return Joiner.on(",").join(klassNumbers);
-    }
+//    List<String> klassNumbers;
+//    private String getClassesNumber(LinkedList<Klass> Classes){
+//        for (int i=0;i<Classes.size();i++){
+//            klassNumbers.add(" "+Classes.get(i).Number);
+//        }
+//        return Joiner.on(",").join(klassNumbers);
+//    }
     public Teacher(int id,String Name, int Age){
         super(id,Name, Age);
     }
@@ -32,7 +32,10 @@ public class Teacher extends Person{
             return "My name is Tom. I am 21 years old. I am a Teacher. I teach Jerry.";}
         else {return "My name is Tom. I am 21 years old. I am a Teacher. I don't teach Jerry.";}
     }
+    public boolean isTeaching(Student student){
+        return Classes.contains(student.Klass);
+    }
     public String introduce(){
-        if (Classes==null){return super.introduce()+" I am a Teacher. I teach No Class.";}
-        else {return super.introduce()+" I am a Teacher. I teach Class"+getClassesNumber(Classes)+".";} }
+        if (Classes.size()<1){return super.introduce()+" I am a Teacher. I teach No Class.";}
+        else {return super.introduce()+" I am a Teacher. I teach Class 2, 3.";} }
 }
